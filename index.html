@@ -28,7 +28,54 @@
             </button>
           </header>
 
-          <main></main>
+          <main>
+            <h1 class="main-title">Analyze your text in real-time.</h1>
+            <div class="main-block">
+              <textarea
+                name="text"
+                id="text-input"
+                class="main-textarea"
+                placeholder="Start typing here… (or paste your text)"
+              ></textarea>
+              <div class="textarea-error hide">
+                <div class="textarea-error_img">
+                  <img src="./images/icon-info.svg" alt="" />
+                </div>
+                <p class="textarea-error_text">
+                  Limit reached! Your text exceeds 300 characters.
+                </p>
+              </div>
+              <div class="main-block_options">
+                <ul class="options-list">
+                  <li class="options-item">
+                    <input
+                      class="option-checkbox"
+                      type="checkbox"
+                      id="exclude-spaces"
+                      name="exclude-spaces"
+                    />
+                    <label for="exclude-spaces">Exclude Spaces</label>
+                  </li>
+                  <li class="options-item">
+                    <input
+                      class="option-checkbox"
+                      type="checkbox"
+                      id="character-limit"
+                      name="character-limit"
+                    />
+                    <label for="character-limit">Set Character Limit</label>
+                    <input type="text" class="char-limit hide" />
+                  </li>
+                </ul>
+                <p class="options-approx">Approx. reading time: &lt;1 minute</p>
+              </div>
+            </div>
+            <div class="cards-results">
+              <div class="results-row">
+                <div class="results-column"></div>
+              </div>
+            </div>
+          </main>
         </div>
       </div>
     </div>
