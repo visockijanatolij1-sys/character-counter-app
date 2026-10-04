@@ -1,3 +1,20 @@
+const modeSwitcher = document.querySelector(".mode-switcher");
+const headerLogo = document.querySelector(".header-logo img");
+const modeSwitcherImg = document.querySelector(".mode-switcher img");
+
+modeSwitcher.addEventListener("click", () => {
+  document.body.classList.toggle("light-theme");
+  if (document.body.classList.contains("light-theme")) {
+    modeSwitcher.style.backgroundColor = "#f2f2f7";
+    headerLogo.src = "./images/logo-light-theme.svg";
+    modeSwitcherImg.src = "./images/icon-moon.svg";
+  } else {
+    modeSwitcher.style.backgroundColor = "#2a2b37";
+    headerLogo.src = "./images/logo-dark-theme.svg";
+    modeSwitcherImg.src = "./images/icon-sun.svg";
+  }
+});
+
 const mainTextarea = document.querySelector(".main-textarea");
 
 const totalCharacters = document.querySelector(".total-characters");

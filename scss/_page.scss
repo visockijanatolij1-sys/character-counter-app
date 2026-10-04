@@ -73,7 +73,9 @@ main {
   font-weight: 700;
   color: variables.$neutral0;
 }
-
+.light-theme .main-title {
+  color: #12131a;
+}
 @media (max-width: 424.98px) {
   .counter-body {
     gap: 40px;
@@ -385,4 +387,36 @@ main {
 }
 .hide {
   display: none;
+}
+// ============================
+
+.light-theme .options-item label,
+.light-theme .options-approx,
+.light-theme .density-title,
+.light-theme .density-letter,
+.light-theme .density-percent,
+.light-theme .static-denssity_text,
+.light-theme .button-text {
+  color: #12131a;
+}
+.light-theme .main-textarea {
+  background-color: #f2f2f7;
+  color: #12131a;
+}
+
+.light-theme .main-textarea::placeholder {
+  color: #12131a;
+}
+
+.light-theme .density-quantity_full {
+  background-color: #f2f2f7;
+}
+
+.light-theme .option-checkbox {
+  border-color: #12131a;
+}
+
+.light-theme .char-limit {
+  border-color: #12131a;
+  color: #12131a;
 }
