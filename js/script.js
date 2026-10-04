@@ -8,10 +8,12 @@ modeSwitcher.addEventListener("click", () => {
     modeSwitcher.style.backgroundColor = "#f2f2f7";
     headerLogo.src = "./images/logo-light-theme.svg";
     modeSwitcherImg.src = "./images/icon-moon.svg";
+    modeSwitcher.setAttribute("aria-label", "Switch to light theme");
   } else {
     modeSwitcher.style.backgroundColor = "#2a2b37";
     headerLogo.src = "./images/logo-dark-theme.svg";
     modeSwitcherImg.src = "./images/icon-sun.svg";
+    modeSwitcher.setAttribute("aria-label", "Switch to dark theme");
   }
 });
 
@@ -29,6 +31,7 @@ const setCharacterLimitCheckbox = document.querySelector(
 );
 const charLimitInput = document.querySelector(".char-limit");
 const textareaError = document.querySelector(".textarea-error");
+const textareaErrorText = document.querySelector(".textarea-error_text");
 
 const optionsApprox = document.querySelector(".options-approx");
 
@@ -44,6 +47,10 @@ let onlyVisiblesElems = [];
 let buttonVissible = false;
 
 mainTextarea.addEventListener("input", () => {
+  buttonVissible = false;
+  buttonText.textContent = "See more";
+  buttonImage.style.transform = "rotate(0deg)";
+
   let inputValue = mainTextarea.value;
 
   let inputArray = inputValue.trim().split(" ");
@@ -187,7 +194,7 @@ function excludeSpace() {
   let inputArray = inputValue.split("");
   let spaceCounter = 0;
   inputArray.forEach((element) => {
-    if (element === " ") spaceCounter++;
+    if (/\s/.test(element)) spaceCounter++;
   });
   let inputWithoutSpaces = inputValue.length - spaceCounter;
   if (inputWithoutSpaces < 10) {
@@ -217,20 +224,25 @@ setCharacterLimitCheckbox.addEventListener("change", () => {
 charLimitInput.addEventListener("input", checkCharLimit);
 
 function checkCharLimit() {
-  let limitValue = +charLimitInput.value;
-  let inputValue = mainTextarea.value;
+  if (charLimitInput.value === "") {
+    hideError();
+  } else {
+    let limitValue = +charLimitInput.value;
+    let inputValue = mainTextarea.value;
 
-  if (setCharacterLimitCheckbox.checked) {
-    if (inputValue.length > limitValue) {
-      showError();
-    } else {
-      hideError();
+    if (setCharacterLimitCheckbox.checked) {
+      if (inputValue.length > limitValue) {
+        showError(limitValue);
+      } else {
+        hideError();
+      }
     }
   }
 }
 
-function showError() {
+function showError(limit) {
   mainTextarea.style.border = "2px solid #fe8159";
+  textareaErrorText.textContent = `Limit reached! Your text exceeds ${limit} characters.`;
   textareaError.classList.remove("hide");
 }
 
@@ -254,11 +266,15 @@ buttonSeeMore.addEventListener("click", () => {
   buttonVissible = !buttonVissible;
 
   if (!buttonVissible) {
+    buttonSeeMore.setAttribute("aria-expanded", "false");
+
     densityList.innerHTML = "";
     drawBars(onlyVisiblesElems, currentTotalLetters);
     buttonText.textContent = "See more";
     buttonImage.style.transform = "rotate(0deg)";
   } else {
+    buttonSeeMore.setAttribute("aria-expanded", "true");
+
     densityList.innerHTML = "";
     drawBars(currentLetterArray, currentTotalLetters);
     buttonText.textContent = "See less";

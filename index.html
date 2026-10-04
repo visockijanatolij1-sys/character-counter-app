@@ -23,7 +23,7 @@
             <a href="#" class="header-logo">
               <img src="./images/logo-dark-theme.svg" alt="Character Counter" />
             </a>
-            <button class="mode-switcher">
+            <button class="mode-switcher" aria-label="Switch to light theme">
               <img src="./images/icon-sun.svg" alt="" />
             </button>
           </header>
@@ -36,14 +36,18 @@
                 id="text-input"
                 class="main-textarea"
                 placeholder="Start typing here… (or paste your text)"
+                aria-label="Text to analyze"
+                aria-describedby="character-limit-error"
               ></textarea>
               <div class="textarea-error hide">
                 <div class="textarea-error_img">
                   <img src="./images/icon-info.svg" alt="" />
                 </div>
-                <p class="textarea-error_text">
-                  Limit reached! Your text exceeds 300 characters.
-                </p>
+                <p
+                  class="textarea-error_text"
+                  id="character-limit-error"
+                  role="alert"
+                ></p>
               </div>
               <div class="main-block_options">
                 <ul class="options-list">
@@ -89,7 +93,7 @@
             <section class="density">
               <h2 class="density-title">Letter Density</h2>
               <ul class="density-list"></ul>
-              <button class="see-more">
+              <button class="see-more" aria-expanded="false">
                 <p class="button-text">See more</p>
                 <div class="button-img">
                   <img src="./images/Title.svg" alt="" />
@@ -100,7 +104,6 @@
         </div>
       </div>
     </div>
-
     <script src="./js/script.js"></script>
   </body>
 </html>

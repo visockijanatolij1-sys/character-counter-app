@@ -26,3 +26,24 @@ ul,
 li {
   list-style-type: none;
 }
+
+.option-checkbox:focus-visible {
+  background-color: #d3a0fa;
+  background-image: url("../images/icon-check.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 12px;
+}
+
+.option-checkbox:focus-visible {
+  outline: 2px solid #d3a0fa;
+  outline-offset: 2px;
+}
+
+.mode-switcher:focus-visible,
+.see-more:focus-visible,
+.char-limit:focus-visible,
+.main-textarea:focus-visible {
+  outline: 2px solid #d3a0fa;
+  outline-offset: 2px;
+}
