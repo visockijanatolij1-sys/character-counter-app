@@ -369,7 +369,7 @@ main {
   border-radius: 10px;
 }
 
-.density-persent {
+.density-percent {
   font-size: 16px;
   line-height: 130%;
   letter-spacing: -0.6px;
@@ -389,6 +389,17 @@ main {
   line-height: 140%;
   letter-spacing: -0.6px;
   color: #e4e4ef;
+}
+
+.static-denssity_text {
+  font-size: 16px;
+  line-height: 130%;
+  letter-spacing: -0.6px;
+  color: #e4e4ef;
+}
+
+.hide {
+  display: none;
 }
 
 * {
